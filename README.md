@@ -80,6 +80,7 @@ L'objectif est de répondre à trois questions business concrètes :
 ---
 
 ### 3 · Direction Générale
+
 ![Direction generale](https://github.com/user-attachments/assets/786401e3-b22a-4bb3-b2fd-20fce0704cf8)
 
 **Ce que montre cette page :** Un résumé exécutif destiné aux décideurs — vue synthétique du chiffre d'affaires total, du profit, du panier moyen et de la répartition par segment de clientèle.
@@ -361,24 +362,7 @@ The report answers three core business questions:
 **What this means in practice:** The forecasts provide a useful direction but should not be treated as certainties. They are a working baseline, not a contractual commitment.
 
 ---
-
-### 3 · Commercial Performance
-
-![Commercial Performance](https://github.com/user-attachments/assets/dbd33f93-55e6-4092-9f2d-15f248bc9018)
-
-**What this page shows:** Sales broken down by product, country, and month, with an interactive year filter to compare 2013 and 2014.
-
-**What we learn:**
-- **Paseo** is the star product with **33M in total sales** — well ahead of MTB (21M) and Bike (18M).
-- Sales are **well distributed across the 5 countries** (between 14M and 20M each) — no excessive dependency on a single market.
-- **October is consistently the best month of the year**, likely tied to Public Sector procurement cycles or year-end commercial campaigns.
-- The **average basket dropped from €448 in 2013 to €138 in 2014** — higher volume, but cheaper unit sales.
-
-**What this means in practice:** The company sells well across multiple markets, which is a genuine strength. But the dependency on Paseo is a real risk: if this product loses appeal or faces competition, the overall revenue would suffer significantly.
-
----
-
-### 4 · Executive Summary
+### 3 · Executive Summary
 
 ![Direction generale](https://github.com/user-attachments/assets/786401e3-b22a-4bb3-b2fd-20fce0704cf8)
 
@@ -391,6 +375,21 @@ The report answers three core business questions:
 - **Total revenue over the period reached 118.73M**, with an overall average basket of €105.46.
 
 **What this means in practice:** This page is the "CEO dashboard." It confirms that the business rests on two pillars (Public Sector + Small Businesses). Growing Medium Enterprises and Commercial Partners represents a significant, largely untapped organic growth lever.
+
+
+### 4 · Commercial Performance
+
+![Commercial Performance](https://github.com/user-attachments/assets/dbd33f93-55e6-4092-9f2d-15f248bc9018)
+
+**What this page shows:** Sales broken down by product, country, and month, with an interactive year filter to compare 2013 and 2014.
+
+**What we learn:**
+- **Paseo** is the star product with **33M in total sales** — well ahead of MTB (21M) and Bike (18M).
+- Sales are **well distributed across the 5 countries** (between 14M and 20M each) — no excessive dependency on a single market.
+- **October is consistently the best month of the year**, likely tied to Public Sector procurement cycles or year-end commercial campaigns.
+- The **average basket dropped from €448 in 2013 to €138 in 2014** — higher volume, but cheaper unit sales.
+
+**What this means in practice:** The company sells well across multiple markets, which is a genuine strength. But the dependency on Paseo is a real risk: if this product loses appeal or faces competition, the overall revenue would suffer significantly.
 
 ---
 
