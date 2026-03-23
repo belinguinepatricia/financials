@@ -42,7 +42,7 @@ L'objectif est de répondre à trois questions business concrètes :
 
 ### 1 · Performance Financière
 
-![Performance financiere](https://github.com/user-attachments/assets/f2b16ccb-c84d-4bec-bdc0-6955eef384a6)
+![Performance financière](https://github.com/user-attachments/assets/2e70d734-4ef4-41c1-8b83-60514f7950e9)
 
 **Ce que montre cette page :** Les indicateurs de santé financière de l'entreprise — cash flow mensuel, seuil de rentabilité, profit par année, et identification du mois où l'entreprise devient rentable.
 
@@ -79,7 +79,22 @@ L'objectif est de répondre à trois questions business concrètes :
 
 ---
 
-### 3 · Performance Commerciale
+### 3 · Direction Générale
+![Direction generale](https://github.com/user-attachments/assets/786401e3-b22a-4bb3-b2fd-20fce0704cf8)
+
+**Ce que montre cette page :** Un résumé exécutif destiné aux décideurs — vue synthétique du chiffre d'affaires total, du profit, du panier moyen et de la répartition par segment de clientèle.
+
+**Ce qu'on apprend :**
+- Le **Secteur Public représente 44% du CA total** avec 52,5M — c'est le segment le plus stratégique.
+- Les Petites Entreprises arrivent en 2ème position avec 42,43M, suivies des Grandes Entreprises (19,61M).
+- Les segments Moyennes Entreprises (2,38M) et Partenaires Commerciaux (1,8M) sont très marginaux — leur potentiel est clairement sous-exploité.
+- Le **CA total sur la période atteint 118,73M**, avec un panier moyen global de 105,46 €.
+
+**Ce que ça signifie concrètement :** Cette page est le "tableau de bord du dirigeant". Elle confirme que l'activité repose essentiellement sur deux segments (Public + Petites Entreprises). Développer les Moyennes Entreprises et les Partenaires Commerciaux représente un levier de croissance significatif pratiquement inexploité.
+
+---
+
+### 4 · Performance Commerciale
 
 ![Performance commerciale](https://github.com/user-attachments/assets/dbd33f93-55e6-4092-9f2d-15f248bc9018)
 
@@ -92,22 +107,6 @@ L'objectif est de répondre à trois questions business concrètes :
 - Le **panier moyen chute de 448 € en 2013 à 138 € en 2014** — plus de volume, mais des ventes moins chères à l'unité.
 
 **Ce que ça signifie concrètement :** L'entreprise vend bien et sur plusieurs marchés, ce qui est une force. Mais la dépendance à Paseo est un risque réel : si ce produit perd de l'attrait ou fait face à un concurrent, le CA global en souffrirait fortement.
-
----
-
-### 4 · Direction Générale
-
-![Direction generale](https://github.com/user-attachments/assets/786401e3-b22a-4bb3-b2fd-20fce0704cf8)
-
-**Ce que montre cette page :** Un résumé exécutif destiné aux décideurs — vue synthétique du chiffre d'affaires total, du profit, du panier moyen et de la répartition par segment de clientèle.
-
-**Ce qu'on apprend :**
-- Le **Secteur Public représente 44% du CA total** avec 52,5M — c'est le segment le plus stratégique.
-- Les Petites Entreprises arrivent en 2ème position avec 42,43M, suivies des Grandes Entreprises (19,61M).
-- Les segments Moyennes Entreprises (2,38M) et Partenaires Commerciaux (1,8M) sont très marginaux — leur potentiel est clairement sous-exploité.
-- Le **CA total sur la période atteint 118,73M**, avec un panier moyen global de 105,46 €.
-
-**Ce que ça signifie concrètement :** Cette page est le "tableau de bord du dirigeant". Elle confirme que l'activité repose essentiellement sur deux segments (Public + Petites Entreprises). Développer les Moyennes Entreprises et les Partenaires Commerciaux représente un levier de croissance significatif pratiquement inexploité.
 
 ---
 
@@ -145,7 +144,7 @@ L'objectif est de répondre à trois questions business concrètes :
 
 ### 7 · Analyse des Remises
 
-![Prévisions 2015](https://github.com/user-attachments/assets/d2915ba7-9c74-4f33-ba59-b7f990e3747c)
+![Analyse des remises](https://github.com/user-attachments/assets/a84b3037-16dd-46f8-967b-743bd90ae539)
 
 **Ce que montre cette page :** L'impact des politiques de remises commerciales sur les volumes vendus et sur la rentabilité, réparti par groupe de remise : Aucun, Bas, Moyen et Élevé.
 
@@ -251,27 +250,25 @@ La présence actuelle se limite à 5 pays à économies matures. Des marchés en
 ## Licence
 
 ```
-MIT License
-
+📄 Licence MIT
 Copyright (c) 2026 BELINGUINE Patricia
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+L'autorisation est accordée, gracieusement, à toute personne acquérant une copie de ce logiciel
+et des fichiers de documentation associés (le « Logiciel »), de l'utiliser sans restriction,
+y compris sans limitation les droits d'utiliser, de copier, de modifier, de fusionner, de publier,
+de distribuer, de sous-licencier et/ou de vendre des copies du Logiciel, et de permettre
+aux personnes auxquelles le Logiciel est fourni de le faire, sous réserve des conditions suivantes :
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+La notice de copyright ci-dessus et la présente autorisation doivent être incluses dans toutes
+les copies ou parties substantielles du Logiciel.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+LE LOGICIEL EST FOURNI « EN L'ÉTAT », SANS GARANTIE D'AUCUNE SORTE, EXPRESSE OU IMPLICITE,
+Y COMPRIS MAIS SANS S'Y LIMITER, LES GARANTIES DE QUALITÉ MARCHANDE, D'ADÉQUATION À
+UN USAGE PARTICULIER ET D'ABSENCE DE CONTREFAÇON. EN AUCUN CAS LES AUTEURS OU TITULAIRES
+DU DROIT D'AUTEUR NE POURRONT ÊTRE TENUS POUR RESPONSABLES D'UNE RÉCLAMATION, DOMMAGES
+OU AUTRE RESPONSABILITÉ, QUE CE SOIT DANS LE CADRE D'UN CONTRAT, D'UN DÉLIT OU AUTRE,
+DÉCOULANT DE, OU EN RELATION AVEC LE LOGICIEL OU L'UTILISATION OU AUTRES RAPPORTS AVEC LE LOGICIEL.
+
 ```
 
 ---
@@ -328,7 +325,7 @@ The report answers three core business questions:
 
 ### 1 · Financial Performance
 
-![Financial Performance](https://github.com/user-attachments/assets/f2b16ccb-c84d-4bec-bdc0-6955eef384a6)
+![Financial performance](https://github.com/user-attachments/assets/2e70d734-4ef4-41c1-8b83-60514f7950e9)
 
 **What this page shows:** The company's core financial health indicators — monthly cash flow, break-even point, profit by year, and the month when profitability is reached.
 
@@ -430,7 +427,7 @@ The report answers three core business questions:
 
 ### 7 · Discount Analysis
 
-![Discount analysis](https://github.com/user-attachments/assets/28749719-53df-4d7e-9e59-5f160c9d4153)
+![Discount analysis](https://github.com/user-attachments/assets/a84b3037-16dd-46f8-967b-743bd90ae539)
 
 **What this page shows:** The impact of commercial discount policies on sales volumes and profitability, broken down by discount group: None, Low, Medium, and High.
 
