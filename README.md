@@ -4,7 +4,7 @@ Dashboard exécutif d'analyse commerciale et financière, construit sur le jeu d
 données Financial Sample, avec modélisation en étoile, paramètre de simulation
 "Quoi si ?", prévisions 2015 et audit complet du modèle DAX.
  
-🔗 [Voir le dashboard en ligne](lien-publish-to-web) · 📄 [Audit technique complet](docs/audit-dax-et-modele.docx)
+ · 📄 [Audit technique complet](assets/Audit_DAX_Financials.docx)
  
 ---
  
@@ -26,10 +26,11 @@ projection 2015 avec analyse de scénario sur les coûts."]
 | Scenario Analysis & Decision Support | Simulation "+X % de coûts" via paramètre Quoi si ? |
 | Pricing & Discount Effectiveness | Effet des remises sur la marge |
 | Geographic Performance | Répartition et performance par pays |
+media/Financial_ameliorer.mp4
  
 ## 🧠 Mesures DAX clés
  
-Le modèle compte 77 mesures au total ([liste complète ici](dax/formules-completes.csv)).
+Le modèle compte 77 mesures au total ([liste complète ici](formules_dax_financial.csv)).
 Sélection de mesures illustrant des techniques DAX spécifiques :
  
 - **`Taux de croissance`** — comparaison YoY à périmètre calendaire constant
@@ -60,7 +61,7 @@ filtre direct sur l'année dans certains visuels | Modificateur retiré |
 artificiellement gonflée dans toutes les prévisions | Comparaison ramenée
 au même périmètre calendaire (Sept-Déc) |
  
-[Audit complet avec les 77 mesures passées en revue →](docs/audit-dax-et-modele.docx)
+[Audit complet avec les 77 mesures passées en revue →](assets/Audit_DAX_Financial.docx)
  
 ## 🗺️ Modèle de données
  
@@ -71,7 +72,7 @@ servant de paramètre "Quoi si ?" pour l'analyse de scénario.
 ## 🛠️ Outils utilisés
  
 Power BI Desktop · DAX · Power Query (M) · Modélisation en étoile ·
-Paramètres "Quoi si ?" · [ajoute Excel/Python/SQL si utilisés en amont]
+Paramètres "Quoi si ?" · 
  
 ## 📎 Fichiers du dépôt
  
@@ -79,7 +80,7 @@ Paramètres "Quoi si ?" · [ajoute Excel/Python/SQL si utilisés en amont]
 - `/docs` — audit technique détaillé et blueprint de conception
 - `/screenshots` — capture de chaque page du rapport
 - `/dax` — export complet des 77 formules DAX
- 
+- /video - navigation dans les pages
 ## 👤 Contact
  
 **Patricia Belinguine** — [LinkedIn] · [email] · [portfolio]
