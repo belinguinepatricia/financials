@@ -1,0 +1,429 @@
+Nom de la mesure;Formule DAX
+"% Autres";"1-([% Top 1]+[% Top 2-3])"
+"% CA Autres Pays";"1-([CA TOP 1 Pays]+[CA Top 2-3 Pays])"
+"% CA Autres Produit";"1-([CA TOP 1  Produit]+[CA Top 2-3 Produit])"
+"% CA Autres Segment_Pays";"1-[% CA Top 3 Segments_Pays]"
+"% CA Autres Segments";"1-([CA TOP 1  Segment]+[CA Top 2-3 Segment])"
+"% CA Top 3 Pays";"
+VAR TotalCA = CALCULATE([Chiffre d'affaires Total],ALL(financials[Pays]))
+VAR CATop2 = CALCULATE([Chiffre d'affaires Total],TOPN(3,ALL(financials[Pays]),[Chiffre d'affaires Total],DESC))
+RETURN
+DIVIDE(CATop2,TotalCA,0)"
+"% CA Top 3 Produits";"
+VAR TotalCA = CALCULATE([Chiffre d'affaires Total],ALL(financials[Pays]))
+VAR CATop3 = CALCULATE([Chiffre d'affaires Total],TOPN(3,ALL(financials[Produit]),[Chiffre d'affaires Total],DESC))
+RETURN
+DIVIDE(CATop3,TotalCA,0)"
+"% CA Top 3 Segments";"
+VAR TotalCA = CALCULATE([Chiffre d'affaires Total],ALL(financials[Pays]))
+VAR CATop3 = CALCULATE([Chiffre d'affaires Total],TOPN(3,ALL(financials[Segment]),[Chiffre d'affaires Total],DESC))
+RETURN
+DIVIDE(CATop3,TotalCA,0)
+"
+"% CA Top 3 Segments_Pays";"
+VAR TotalCA = CALCULATE([Chiffre d'affaires Total],ALL(financials[Pays]))
+VAR CATop3 = CALCULATE([Chiffre d'affaires Total],TOPN(3,ALL(financials[Segment_Pays]),[Chiffre d'affaires Total],DESC))
+RETURN
+DIVIDE(CATop3,TotalCA,0)"
+"% Marge Produits";"
+ VAR CA = [Chiffre d'affaires Total]
+ VAR MargeBrute = CA-SUM(financials[COGS])
+ RETURN
+ DIVIDE(MargeBrute,CA,0)"
+"% Top 1";"
+VAR _Domaine = SELECTEDVALUE('Axe Concentration'[Domaine])
+RETURN
+SWITCH(
+    _Domaine,""Segment"",DIVIDE(CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Segment]),[Chiffre d'affaires Total],DESC)),CALCULATE([Chiffre d'affaires Total],ALL(financials[Segment]))),
+    ""Produit"",DIVIDE(CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Produit]),[Chiffre d'affaires Total],DESC)),CALCULATE([Chiffre d'affaires Total],ALL(financials[Produit]))),
+    ""Pays"",DIVIDE(CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Pays]),[Chiffre d'affaires Total],DESC)),CALCULATE([Chiffre d'affaires Total],ALL(financials[Pays]))),
+    BLANK()
+)"
+"% Top 2-3";"
+VAR _Domaine = SELECTEDVALUE('Axe Concentration'[Domaine])
+
+VAR _Top3_Seg = CALCULATE([Chiffre d'affaires Total],TOPN(3,ALL(financials[Segment]),[Chiffre d'affaires Total],DESC))
+VAR _Top1_Seg = CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Segment]),[Chiffre d'affaires Total],DESC))
+
+VAR _Top3_Prod = CALCULATE([Chiffre d'affaires Total],TOPN(3,ALL(financials[Produit]),[Chiffre d'affaires Total],DESC))
+VAR _Top1_Prod = CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Produit]),[Chiffre d'affaires Total],DESC))
+
+VAR _Top3_Pays = CALCULATE([Chiffre d'affaires Total],TOPN(3,ALL(financials[Pays]),[Chiffre d'affaires Total],DESC))
+VAR _Top1_Pays = CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Pays]),[Chiffre d'affaires Total],DESC))
+
+RETURN
+SWITCH(
+    _Domaine,
+    ""Segment"",DIVIDE(_Top3_Seg-_Top1_Seg,CALCULATE([Chiffre d'affaires Total],ALL(financials[Segment]))),
+    ""Produit"",DIVIDE(_Top3_Prod-_Top1_Prod,CALCULATE([Chiffre d'affaires Total],ALL(financials[Produit]))),
+    ""Pays"",DIVIDE(_Top3_Pays-_Top1_Pays,CALCULATE([Chiffre d'affaires Total],ALL(financials[Pays]))),BLANK()
+)"
+"Annnee Prévisionnelle 2013";"
+VAR Sept = CALCULATE([Chiffre d'affaires Total],FILTER(ALL(financials),YEAR(financials[Date])=2013 && MONTH(financials[Date])=9))
+VAR Oct = CALCULATE([Chiffre d'affaires Total],FILTER(ALL(financials),YEAR(financials[Date])=2013 && MONTH(financials[Date])=10))
+VAR Nov = CALCULATE([Chiffre d'affaires Total],FILTER(ALL(financials),YEAR(financials[Date])=2013 && MONTH(financials[Date])=11))
+VAR Dec = CALCULATE([Chiffre d'affaires Total],FILTER(ALL(financials),YEAR(financials[Date])=2013 && MONTH(financials[Date])=12))
+VAR Total = Sept + Oct + Nov + Dec
+RETURN
+DIVIDE(Total,4,0)"
+"Bénéfice Total Historique";"SUM(financials[Profit])"
+"Bénéfices 2014";"
+CALCULATE(
+    SUM(financials[Profit]),
+    FILTER(
+        ALL(financials),
+        financials[Année]=2014
+        )
+)"
+"CA TOP 1  Produit";"DIVIDE(CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Produit]),[Chiffre d'affaires Total],DESC)),CALCULATE([Chiffre d'affaires Total],ALL(financials[Produit])))"
+"CA TOP 1  Segment";"DIVIDE(CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Segment]),[Chiffre d'affaires Total],DESC)),CALCULATE([Chiffre d'affaires Total],ALL(financials[Segment])))"
+"CA TOP 1 Pays";"DIVIDE(CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Pays]),[Chiffre d'affaires Total],DESC)),CALCULATE([Chiffre d'affaires Total],ALL(financials[Pays])))"
+"CA Top 2-3 Pays";"
+VAR CA_Top3 = CALCULATE([Chiffre d'affaires Total],TOPN(3,ALL(financials[Pays]),[Chiffre d'affaires Total],DESC))
+VAR CA_Top1 = CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Pays]),[Chiffre d'affaires Total],DESC))
+VAR CA_Total = CALCULATE([Chiffre d'affaires Total],ALL(financials[Pays]))
+
+RETURN
+DIVIDE(CA_Top3-CA_Top1,CA_Total)"
+"CA Top 2-3 Produit";"
+VAR CA_Top3 = CALCULATE([Chiffre d'affaires Total],TOPN(3,ALL(financials[Produit]),[Chiffre d'affaires Total],DESC))
+VAR CA_Top1 = CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Produit]),[Chiffre d'affaires Total],DESC))
+VAR CA_Total = CALCULATE([Chiffre d'affaires Total],ALL(financials[Produit]))
+
+RETURN
+DIVIDE(CA_Top3-CA_Top1,CA_Total)"
+"CA Top 2-3 Segment";"
+VAR CA_Top3 = CALCULATE([Chiffre d'affaires Total],TOPN(3,ALL(financials[Segment]),[Chiffre d'affaires Total],DESC))
+VAR CA_Top1 = CALCULATE([Chiffre d'affaires Total],TOPN(1,ALL(financials[Segment]),[Chiffre d'affaires Total],DESC))
+VAR CA_Total = CALCULATE([Chiffre d'affaires Total],ALL(financials[Segment]))
+
+RETURN
+DIVIDE(CA_Top3-CA_Top1,CA_Total)"
+"Cash Flow Mensuel";"
+VAR TotalEntrees = SUM(financials[Ventes])
+VAR TotalSorties = SUM(financials[COGS])+SUM(financials[Remise])
+VAR NombreMois = COUNTROWS(SUMMARIZE(financials,financials[Année],financials[Nom du Mois]))
+RETURN
+DIVIDE(TotalEntrees-TotalSorties,NombreMois,0)"
+"Cash Flow Moyen Brut Mensuel";"
+VAR ProfitGlobal = [Bénéfice Total Historique]
+-- On compte le nombre de mois uniques sur la periode Sept 2013 à Dec 2014)
+VAR NombreDeMoisReel = COUNTROWS(SUMMARIZE('financials',financials[Année],financials[Nom du Mois]))
+-- On divise le Profit Global par le nombre de mois
+RETURN
+DIVIDE(ProfitGlobal,NombreDeMoisReel,0)
+"
+"Chiffre d'affaires moyen par unité";"
+VAR Ventes = [Chiffre d'affaires Total]
+VAR Quantite = [Total d articles vendus]
+RETURN
+DIVIDE(Ventes,Quantite,0)"
+"Chiffre d'affaires Total";"SUM('financials'[Ventes])"
+"Couleur Barre du Leader";"
+VAR LeaderNom = TOPN(1,ALLSELECTED(financials[Segment]),[Chiffre d'affaires Total],DESC)
+VAR SegmentActuel = SELECTEDVALUE(financials[Segment])
+VAR IFLeader = COUNTROWS(FILTER(LeaderNom,financials[Segment]=SegmentActuel))>0
+VAR IFTop3 = COUNTROWS(FILTER(TOPN(3,ALLSELECTED(financials[Segment]),[Chiffre d'affaires Total],DESC),financials[Segment]=SegmentActuel))>0
+RETURN
+SWITCH(TRUE(),IFLeader, ""#004080"", IFTop3, ""#FFB800"", ""#D3D3D3"")"
+"Couleur Cash Flow";"SWITCH(TRUE(),[Cash Flow Moyen Brut Mensuel]<0,""#FF0000"",[Cash Flow Moyen Brut Mensuel]<[Objectif Profit mensuel],""#FFA500"",""#00B050"")"
+"Couleur Indice Solvabilite";"IF([Indice de solvabilité]>=1,""#008000"",""#FF0000"")"
+"Couleur Marge Tooltip";"
+VAR Marge = [% Marge Produits]
+RETURN
+SWITCH( TRUE(),Marge<=0.10,""#FF0000"",Marge <=0.25,""#FFA500"",""#008000"")"
+"Couleur Periode de Survie";"IF([Période de survie (Mois)]>=1,""#008000"",""#FF0000"")"
+"Couleur Prediction Survie 2015";"IF([Prédiction Survie 2015]>=1,""#008000"",""#FF0000"")"
+"Coût des ventes 2014";"
+CALCULATE(
+    SUM(financials[COGS]),
+    FILTER(
+        ALL(financials),
+        financials[Année]=2014
+        )
+)"
+"Croissance par rapport à la periode precedente";"
+VAR Ventes2014 = [Ventes 2014]
+VAR Forecast2015 = [Prévisions des ventes 2015]
+RETURN
+DIVIDE(
+    Forecast2015-Ventes2014,[Ventes 2014]
+)"
+"Depenses cumulees";"CALCULATE(SUM(financials[COGS])+SUM(financials[Remise]),FILTER(ALLSELECTED(Calendrier),Calendrier[Date]<=MAX(Calendrier[Date])))"
+"Dépenses moyennes mensuelles";"
+VAR TotalDepenses = SUM(financials[COGS])+SUM(financials[Remise])
+VAR NombreDeMois = COUNTROWS(SUMMARIZE('financials',financials[Année],financials[Nom du Mois]))
+RETURN
+DIVIDE(TotalDepenses,NombreDeMois,0)"
+"Ecart entre la prévision et l'objectif";"
+DIVIDE(
+    [Prévisions des ventes 2015]-[Objectif Ventes 2015],
+    [Objectif Ventes 2015]
+)"
+"Ecart Profit vs Objectif";"
+VAR ProfitReel2014 = CALCULATE([Chiffre d'affaires Total]+[Depenses cumulees],FILTER(ALL(financials),YEAR(financials[Date])=2014))
+VAR Objectif = [Objectif Profit 2014]
+RETURN
+FORMAT(DIVIDE(ProfitReel2014-Objectif,Objectif,0),""+0.0%"") & "" vs Objectif"""
+"Evolution prévisionnelle";"[Prévisions des ventes 2015]-CALCULATE([Chiffre d'affaires Total],FILTER(ALL(financials),YEAR(financials[Date])=2014))"
+"Flux de trésorerie disponible";"
+VAR TauxImpot = 0.25
+VAR ProfitApresHausse = SUM(financials[Profit]) + [Impact sur le Profit]
+RETURN
+ProfitApresHausse * (1-TauxImpot)"
+"Flux de trésorerie disponible 2014";"
+VAR TauxImpot = 0.25
+VAR ProfitApresHausse = [Bénéfices 2014] + [Impact sur le Profit]
+RETURN
+ProfitApresHausse * (1-TauxImpot)
+
+
+
+"
+"Impact sur le Profit";"
+VAR ProfitActuel =SUM(financials[Ventes])-SUM(financials[COGS])
+VAR NouveauCOGS = SUM(financials[COGS])*(1+[Valeur % Augmentation Couts])
+VAR ProfitSimule = SUM(financials[Ventes])-NouveauCOGS
+RETURN ProfitSimule-ProfitActuel"
+"Indice de solvabilité";"DIVIDE(SUM(financials[Ventes]),SUM(financials[COGS])+SUM(financials[Remise]),0)"
+"Marge bénéficiaire";"DIVIDE(SUM(financials[Profit]),SUM(financials[Ventes]),0)"
+"Marge bénéficiaire 2014";"CALCULATE(DIVIDE(SUM(financials[Profit]),SUM(financials[Ventes]),0),financials[Année]=2014)"
+"Marge de securité";"
+VAR VentesReelles = SUM(financials[Ventes])
+VAR SeuilRentabilite = [Marge de securite moyenne mensuelle]
+RETURN
+DIVIDE(VentesReelles-SeuilRentabilite,VentesReelles,0)"
+"Marge de securite moyenne mensuelle";"
+DIVIDE(SUM(financials[Ventes])-[Seuil de rentabilite annuel],SUM(financials[Ventes]),0)"
+"Mois de rentabilité";"CALCULATE(FIRSTNONBLANK(financials[Nom du Mois],1),FILTER(ALLSELECTED(financials),[Ventes Cumulees]>[Depenses cumulees]))"
+"MoM Revenue %";"
+VAR CurrentRevenue = [Chiffre d'affaires Total]
+VAR PreviousMonthRevenue = CALCULATE([Chiffre d'affaires Total],DATEADD(Calendrier[Date],-1,MONTH))
+RETURN
+DIVIDE(CurrentRevenue-PreviousMonthRevenue,PreviousMonthRevenue)"
+"Moyenne Mensuelle Vente 2013";"
+VAR TotalVentes = CALCULATE(SUM(financials[Ventes]),financials[Année]=2013)
+VAR NombreMois = CALCULATE(COUNTROWS(SUMMARIZE(financials,financials[Année],financials[Nom du Mois])),financials[Année]=2013)
+RETURN
+DIVIDE(TotalVentes,NombreMois,0)"
+"Moyenne Mensuelle Ventes 2014";"
+VAR NombreMois = CALCULATE(COUNTROWS(SUMMARIZE(financials,financials[Année],financials[Nom du Mois])),financials[Année]=2014)
+VAR TotalVentes = CALCULATE(SUM(financials[Ventes]),financials[Année]=2014)
+RETURN
+DIVIDE(TotalVentes,NombreMois,0)"
+"Objectif Profit 2013";"
+VAR Ventes2013 = CALCULATE([Chiffre d'affaires Total],FILTER(ALL(financials),YEAR(financials[Date])=2013))
+VAR COGS2013 = CALCULATE([Depenses cumulees],FILTER(ALL(financials),YEAR(financials[Date])=2013))
+RETURN
+Ventes2013-COGS2013"
+"Objectif Profit 2014";"
+VAR Profit2013 = CALCULATE([Chiffre d'affaires Total]-[Depenses cumulees],FILTER(ALL(financials),YEAR(financials[Date])=2013))
+VAR TauxCroissanceCible = 0.18
+RETURN
+Profit2013*(1+TauxCroissanceCible)"
+"Objectif Profit mensuel";"
+VAR ObjectifAnnuel = [Objectif Profit 2014]
+VAR NombreMois = CALCULATE(COUNTROWS(SUMMARIZE(financials,financials[Année],financials[Nom du Mois])),financials[Année]=2014)
+RETURN
+DIVIDE(ObjectifAnnuel,NombreMois,0)"
+"Objectif Vente Mensuel";"
+VAR TotalVentes = CALCULATE(SUM(financials[Ventes]),ALL(financials[Date]))
+VAR NombreMois = COUNTROWS(SUMMARIZE(financials,financials[Année],financials[Nom du Mois]))
+RETURN
+DIVIDE(TotalVentes,NombreMois,0)"
+"Objectif Ventes 2015";"
+VAR Ventes2014 = 
+    CALCULATE(
+        SUM(financials[Ventes]),FILTER(ALL(financials),YEAR(financials[Date])=2014)
+    )
+RETURN
+Ventes2014*(1+0.40)"
+"PanierMoyenMensuel";"
+VAR TotalVentes = [Chiffre d'affaires Total]
+VAR QuantiteVendue = SUM('financials'[Unité vendues])
+-- Ou on compte les transactions
+-- On compte le nombre de mois uniques sur la periode Sept 2023 a Dec 2024)
+VAR NombreDeMoisReel = COUNTROWS(SUMMARIZE('financials',financials[Année],financials[Numéro du Mois]))
+-- On calcule le panier moyen par unite vendue
+VAR PanierParArticle = DIVIDE([Chiffre d'affaires Total],QuantiteVendue,0)
+-- On divise par le nombre de mois
+RETURN
+DIVIDE(PanierParArticle,NombreDeMoisReel,0)"
+"Part du chiffre d'affaires";"DIVIDE([Prévisions des ventes 2015],CALCULATE([Prévisions des ventes 2015],ALLSELECTED()))"
+"Performance moyenne vente";"
+VAR TotalVentes = [Chiffre d'affaires Total]
+-- On compte le nombre de mois uniques sur la periode Sept 2023 a Dec 2024)
+VAR NombreDeMoisReel = COUNTROWS(SUMMARIZE('financials',financials[Année],financials[Nom du Mois]))
+-- On divise le chiffre d'Affaire Total par le nombre de mois
+RETURN
+DIVIDE([Chiffre d'affaires Total],NombreDeMoisReel,0)"
+"Période de survie (Mois)";"
+--1. Definir le Ca disponible (A adapter selon votre source de donnees)
+--Si vous n'avez pas de solde bancaire, on peut utiliser le Profit Cumule
+VAR CashDiponible = [Bénéfice Total Historique]
+-- 2. Calculer les depenses moyennes (Le Burn Rate)
+VAR NombreDeMois = COUNTROWS(SUMMARIZE('financials',financials[Année],financials[Nom du Mois]))
+VAR TotalDepenses = SUM(financials[COGS])
+VAR BurnRateMensuel = DIVIDE(TotalDepenses,NombreDeMois,0)
+-- 3. Calcul du ration de survie
+RETURN
+DIVIDE(CashDiponible,BurnRateMensuel,0)"
+"Prédiction Profit 2015";"
+VAR Profit2014 = CALCULATE(SUM(financials[Profit]),FILTER(ALL(financials),YEAR(financials[Date])=2014))
+VAR Taux = [Taux de croissance (comparable Sept-Dec)]
+RETURN
+Profit2014*(1+Taux)"
+"Prédiction Seuil 2015";"
+VAR COGS2014 = CALCULATE(SUM(financials[COGS]),FILTER(ALL(financials),YEAR(financials[Date])=2014))
+VAR Sales2014 = CALCULATE(SUM(financials[Ventes]),FILTER(ALL(financials),YEAR(financials[Date])=2014))
+VAR TauxMarge = DIVIDE(Sales2014-COGS2014,Sales2014,0)
+VAR COGGS2015 = COGS2014*(1+[Taux de croissance (comparable Sept-Dec)])
+RETURN
+DIVIDE(COGGS2015,TauxMarge,0)/12"
+"Prédiction Survie 2015";"
+VAR CashFlow2015 = [Prévisions des ventes 2015]-CALCULATE(SUM(financials[COGS]),FILTER(ALL(financials),YEAR(financials[Date])=2014))*(1+[Taux de croissance (comparable Sept-Dec)])
+VAR DepensesMensuelles = DIVIDE(CALCULATE(SUM(financials[COGS]),FILTER(ALL(financials),YEAR(financials[Date])=2014))*(1+[Taux de croissance (comparable Sept-Dec)]),12,0)
+RETURN
+DIVIDE(CashFlow2015,DepensesMensuelles,0)"
+"Predictions Ventes 2015 par Pays";"
+VAR PaysActuel = SELECTEDVALUE(financials[Pays])
+VAR Ventes2014Pays = CALCULATE(SUM(financials[Ventes]),FILTER(ALL(financials),YEAR(financials[Date])=2014&&MONTH(financials[Date]) IN {9,10,11,12}&&financials[Pays]=PaysActuel))
+VAR Ventes2013Pays = CALCULATE(SUM(financials[Ventes]),FILTER(ALL(financials),YEAR(financials[Date])=2013&&MONTH(financials[Date]) IN {9,10,11,12}&&financials[Pays]=PaysActuel))
+RETURN
+Ventes2014Pays*(1+DIVIDE(Ventes2014Pays-Ventes2013Pays,Ventes2013Pays,0))"
+"Predictions Ventes 2015 par Produit";"
+VAR ProduitActuel = SELECTEDVALUE(financials[Produit])
+
+VAR Ventes2014Produit = 
+    CALCULATE(
+        SUM(financials[Ventes]),
+            ALL(financials),
+            YEAR(financials[Date])=2014 &&
+             MONTH(financials[Date]) IN {9,10,11,12} && financials[Produit])=ProduitActuel
+VAR Ventes2013Produit = 
+    CALCULATE(
+        SUM(financials[Ventes]),
+            ALL(financials),
+            YEAR(financials[Date])=2013 && 
+            MONTH(financials[Date]) IN {9,10,11,12} && 
+            financials[Produit]=ProduitActuel
+        )
+    VAR TauxCroissance = 
+        IF(
+            Ventes2013Produit=0,0,
+            DIVIDE(Ventes2014Produit-Ventes2013Produit,Ventes2013Produit,0)
+        )
+RETURN
+Ventes2014Produit * (1 + TauxCroissance)"
+"Prédictions Ventes 2015 par Segment";"
+VAR SegmentActuel = SELECTEDVALUE(financials[Segment])
+VAR Ventes2013Segment = CALCULATE(SUM(financials[Ventes]),FILTER(ALL(financials),YEAR(financials[Date])=2013&&financials[Segment]=SegmentActuel))
+VAR Ventes2014Segment = CALCULATE(SUM(financials[Ventes]),FILTER(ALL(financials),YEAR(financials[Date])=2014 &&financials[Segment]=SegmentActuel))
+VAR TauxSegment = DIVIDE(Ventes2014Segment-Ventes2013Segment,Ventes2013Segment,0)
+RETURN
+Ventes2014Segment*(1+TauxSegment)"
+"Prévisions des ventes 2015";"
+VAR Ventes2014 = CALCULATE(SUM(financials[Ventes]),ALL(Calendrier),Calendrier[Annee]=2014)
+VAR Taux = [Taux de croissance (comparable Sept-Dec)]
+RETURN
+Ventes2014*(1+Taux)"
+"Prix usine dynamique";"SUM(financials[Prix de fabrication])*(1+'% Augmentation Couts'[Valeur % Augmentation Couts])"
+"Profit Simule";"[Bénéfices 2014]-[Coût des ventes 2014]*SELECTEDVALUE('% Augmentation Couts'[% Augmentation Couts])"
+"Rang";"
+IF(ISBLANK([Prévisions des ventes 2015]),BLANK(),SWITCH(TRUE(),ISINSCOPE(financials[Segment]),RANKX(ALLSELECTED(financials[Segment]),[Prévisions des ventes 2015],,DESC),ISINSCOPE(financials[Produit]),RANKX(ALLSELECTED(financials[Produit]),[Prévisions des ventes 2015],,DESC),ISINSCOPE(financials[Pays]),RANKX(ALLSELECTED(financials[Pays]),[Prévisions des ventes 2015],,DESC),BLANK()))"
+"Remise 2014";"
+CALCULATE(
+    SUM(financials[Remise]),
+    FILTER(
+        ALL(financials),
+        financials[Année]=2014
+        )
+)"
+"Revenue %";"
+DIVIDE([Chiffre d'affaires Total],CALCULATE([Chiffre d'affaires Total],ALL(financials[Segment])))"
+"Revenue YoY % (Mensuel)";"
+VAR CurrentRevenue = [Chiffre d'affaires Total]
+VAR PreviousRevenue = CALCULATE([Chiffre d'affaires Total],SAMEPERIODLASTYEAR(Calendrier[Date]))
+RETURN
+DIVIDE(CurrentRevenue-PreviousRevenue,PreviousRevenue)"
+"Seuil de rentabilite 2014";"
+VAR CA = [Ventes 2014]
+VAR CDG = [Coût des ventes 2014]+[Remise 2014]
+VAR TauxMarge = DIVIDE(CA - CDG, CA, 0)
+RETURN
+    DIVIDE(CDG, TauxMarge, 0)"
+"Seuil de rentabilite annuel";"
+VAR CA = [Chiffre d'affaires Total]
+VAR CDG = SUM(financials[COGS])+SUM(financials[Remise])
+VAR TauxMarge = DIVIDE(CA - CDG, CA, 0)
+RETURN
+    DIVIDE(CDG, TauxMarge, 0)"
+"Seuil Min Top 3 Produit";"
+VAR RankingSegments =
+ADDCOLUMNS(ALL(financials[Produit]),""CA"",CALCULATE([Chiffre d'affaires Total]))
+VAR Top3 = TOPN(3,RankingSegments,[CA],DESC)
+RETURN
+MINX(Top3,[CA])"
+"Seuil Min Top 3 Segment";"
+VAR RankingSegments =
+ADDCOLUMNS(ALL(financials[Segment]),""CA"",CALCULATE([Chiffre d'affaires Total]))
+VAR Top3 = TOPN(3,RankingSegments,[CA],DESC)
+RETURN
+MINX(Top3,[CA])"
+"Taux de croissance (comparable Sept-Dec)";"
+VAR Ventes2013 = CALCULATE(SUM(financials[Ventes]),FILTER(ALL(financials),YEAR(financials[Date])=2013&&MONTH(financials[Date]) IN {9,10,11,12}))
+VAR Ventes2014 = CALCULATE(SUM(financials[Ventes]),FILTER(ALL(financials),YEAR(financials[Date])=2014&&MONTH(financials[Date]) IN{9,10,11,12}))
+RETURN
+DIVIDE(Ventes2014-Ventes2013,Ventes2013,0)"
+"Taux de croissance prévisionnel";"DIVIDE([Evolution prévisionnelle],CALCULATE([Chiffre d'affaires Total],FILTER(ALL(financials),YEAR(financials[Date]=2014))))"
+"Taux de remise %";"DIVIDE(SUM(financials[Remise]),SUM(financials[Ventes brutes]),0)"
+"Test Profit 2013";"CALCULATE(SUM(financials[Profit]),YEAR(financials[Date])=2013)"
+"Test Profit 2014";"CALCULATE(SUM(financials[Profit]),FILTER(ALL(financials),YEAR(financials[Date])=2014))"
+"Titre Dynamique";"""Hausse selectionnee:""&([Valeur % Augmentation Couts]*100) & ""%"""
+"Titre Dynamique Alerte";"
+VAR TopSegmentTable = TOPN(1,ALLSELECTED(financials[Segment]),[Chiffre d'affaires Total],DESC)
+VAR LeaderNom = MAXX(TopSegmentTable,financials[Segment])
+VAR CA_Leader = CALCULATE([Chiffre d'affaires Total],TopSegmentTable)
+VAR CA_Total = CALCULATE([Chiffre d'affaires Total],ALLSELECTED(financials[Segment]))
+VAR PoidsLeader = DIVIDE(CA_Leader, CA_Total)
+VAR TexteBase = ""Segment Leader : "" & UPPER(LeaderNom) &"" (""& FORMAT(PoidsLeader, ""0%"") & "" du CA)""
+RETURN
+IF(PoidsLeader>0.50,""ALERTE CONCENTRATION : "" & TexteBase & "" - Risque de dependance eleve"",TexteBase)"
+"Titre Graphique";"""CA Total ("" & FORMAT([Taux de croissance (comparable Sept-Dec)],""+0%;-0%) & ') vs Performance Annuelle Corrigee (+18%) de 2013-2014"")"
+"Total COGS";"SUM(financials[COGS])"
+"Total coût des ventes";"DIVIDE([Total COGS],[Chiffre d'affaires Total],0)"
+"Total d articles vendus";"SUM(financials[Unité vendues])"
+"total remise";"SUM(financials[Remise])"
+"Unite vendue par groupe de remise";"SUM(financials[Unité vendues])"
+"Valeur % Augmentation Couts";"SELECTEDVALUE('% Augmentation Couts'[% Augmentation Couts], 0.05)"
+"Valeur Waterfall";"
+VAR _Etape = SELECTEDVALUE('Axe Waterfall'[Etape])
+VAR _ProfitActuel = [Bénéfices 2014] -- L'impact doit etre NEGATIF pour faire descendre la barre
+VAR _Impactdelahaussedescouts = -1*([Coût des ventes 2014]*[Valeur % Augmentation Couts])
+VAR _NouveauProfit = _ProfitActuel+_Impactdelahaussedescouts
+
+RETURN
+SWITCH(_Etape,""Profit actuel"",_ProfitActuel,""Impact de la hausse des couts"",_Impactdelahaussedescouts,""Nouveau Profit"",_NouveauProfit,BLANK() -- Laisse Power BI gerer le Total automatiquement pour la 3e barre
+)"
+"Variation FCF";"[Impact sur le Profit] * (1-0.25)"
+"Ventes 2014";"
+CALCULATE(
+    SUM(financials[Ventes]),
+    FILTER(
+        ALL(financials),
+        financials[Année]=2014
+        )
+)"
+"Ventes Cumulees";"TOTALYTD(SUM(financials[Ventes]),Calendrier[Date] )"
+"Ventes Previsions Mensuelles 2015";"
+VAR VentesMois2014 = 
+    CALCULATE(
+        SUM(financials[Ventes]),
+        SAMEPERIODLASTYEAR(Calendrier[Date])
+    )
+RETURN
+    IF(
+       MAX(Calendrier[Date])>=DATE(2015,1,1)&&MAX(Calendrier[Date])<=DATE(2015,12,31),
+       VentesMois2014*(1+[Taux de croissance (comparable Sept-Dec)]),
+       BLANK()
+    )"
