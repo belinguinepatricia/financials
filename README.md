@@ -43,6 +43,9 @@ projection 2015 avec analyse de scénario sur les coûts."]
 
 *KPI Prévision*
 
+![Analyse de scénario](https://github.com/user-attachments/assets/307dc2a1-c941-443e-ba3d-385bdcf0a0b2)
+
+*Analyse de scénario*
 
 media/Financial_ameliorer.mp4
  
