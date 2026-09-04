@@ -51,8 +51,13 @@ projection 2015 avec analyse de scénario sur les coûts."]
 
 *Prix et Remise*
 
+![Performance géographique](https://github.com/user-attachments/assets/fc683da0-d8ad-4fdd-b367-a28484e17c9e)
 
-media/Financial_ameliorer.mp4
+
+*Performance géographique*
+
+
+*Navigation*
  
 ## 🧠 Mesures DAX clés
  
