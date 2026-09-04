@@ -4,7 +4,7 @@ Dashboard exécutif d'analyse commerciale et financière, construit sur le jeu d
 données Financial Sample, avec modélisation en étoile, paramètre de simulation
 "Quoi si ?", prévisions 2015 et audit complet du modèle DAX.
  
- · 📄 [Audit technique complet](Audit_DAX_Complet_Financials_v3.docx](https://github.com/user-attachments/files/31826765/Audit_DAX_Complet_Financials_v3.docx)
+ · 📄 [Audit technique complet](https://github.com/user-attachments/files/31826765/Audit_DAX_Complet_Financials_v3.docx)
  
 ---
  
