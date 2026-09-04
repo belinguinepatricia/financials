@@ -27,9 +27,8 @@ projection 2015 avec analyse de scénario sur les coûts."]
 | Pricing & Discount Effectiveness | Effet des remises sur la marge |
 | Geographic Performance | Répartition et performance par pays |
 
-https://github.com/user-attachments/assets/e0b8f9db-71ef-4851-ae41-d6967d57fbf6
+![Vue exécutive] https://github.com/user-attachments/assets/e0b8f9db-71ef-4851-ae41-d6967d57fbf6!
 
-Vue exécutive 
 
 media/Financial_ameliorer.mp4
  
