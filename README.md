@@ -29,7 +29,7 @@ projection 2015 avec analyse de scénario sur les coûts."]
 
 ![Vue exécutive](https://github.com/user-attachments/assets/e0b8f9db-71ef-4851-ae41-d6967d57fbf6)
 
-
+*Vue exécutive*
 media/Financial_ameliorer.mp4
  
 ## 🧠 Mesures DAX clés
