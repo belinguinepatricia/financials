@@ -30,7 +30,7 @@ media/Financial_ameliorer.mp4
  
 ## 🧠 Mesures DAX clés
  
-Le modèle compte 77 mesures au total ([liste complète ici](formules_dax_financial.csv)).
+Le modèle compte 77 mesures au total ([liste complète [ici](https://github.com/user-attachments/files/31828499/formules.dax.financials.csv).
 Sélection de mesures illustrant des techniques DAX spécifiques :
  
 - **`Taux de croissance`** — comparaison YoY à périmètre calendaire constant
