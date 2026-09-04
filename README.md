@@ -47,6 +47,11 @@ projection 2015 avec analyse de scénario sur les coûts."]
 
 *Analyse de scénario*
 
+![Prix et Remise](https://github.com/user-attachments/assets/dc043062-2c26-4709-b147-4e27af6c88d4)
+
+*Prix et Remise*
+
+
 media/Financial_ameliorer.mp4
  
 ## 🧠 Mesures DAX clés
