@@ -30,6 +30,11 @@ projection 2015 avec analyse de scénario sur les coûts."]
 ![Vue exécutive](https://github.com/user-attachments/assets/e0b8f9db-71ef-4851-ae41-d6967d57fbf6)
 
 *Vue exécutive*
+
+![Performance des ventes](https://github.com/user-attachments/assets/f5d754d4-f459-40e9-b58c-cb0a11ac3002)
+
+*Performance des ventes*
+
 media/Financial_ameliorer.mp4
  
 ## 🧠 Mesures DAX clés
