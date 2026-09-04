@@ -1,4 +1,4 @@
-# 📊 Tableau de Bord Financier & Commercial — Financial Dataset (Power BI)
+ # 📊 Tableau de Bord Financier & Commercial — Financial Dataset (Power BI)
 
 Dashboard exécutif d'analyse commerciale et financière, construit sur le jeu de
 données Financial Sample, avec modélisation en étoile, paramètre de simulation
@@ -35,7 +35,7 @@ projection 2015 avec analyse de scénario sur les coûts."]
 
 *Performance des ventes*
 
-![Prevision 2015](https://github.com/user-attachments/assets/c73d7a88-e473-45ed-9a31-4cc00f93d162
+![Prevision 2015](https://github.com/user-attachments/assets/c73d7a88-e473-45ed-9a31-4cc00f93d162)
 
 *Prévision 2015*
 
