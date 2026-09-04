@@ -61,7 +61,7 @@ filtre direct sur l'année dans certains visuels | Modificateur retiré |
 artificiellement gonflée dans toutes les prévisions | Comparaison ramenée
 au même périmètre calendaire (Sept-Déc) |
  
-[Audit complet avec les 77 mesures passées en revue →](assets/Audit_DAX_Financial.docx)
+[Audit complet avec les 77 mesures passées en revue →](https://github.com/user-attachments/files/31828499/formules.dax.financials.csv)
  
 ## 🗺️ Modèle de données
  
