@@ -56,6 +56,7 @@ projection 2015 avec analyse de scénario sur les coûts."]
 
 *Performance géographique*
 
+![Navigation dashboard](https://github.com/user-attachments/assets/47f019a7-8e1f-4e36-b831-e60376839351)
 
 *Navigation*
  
