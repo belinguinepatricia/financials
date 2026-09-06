@@ -108,7 +108,7 @@ Paramètres "Quoi si ?" ·
  
 ## 📎 Fichiers du dépôt
  
-- `Financials_commercial_financier.pbix` — le fichier Power BI complet
+- `Financials_commercial_financier.pbit` — le fichier Power BI modèle, a retrouver dans mon dossier asset
 - `/docs` — audit technique détaillé et blueprint de conception
 - `/screenshots` — capture de chaque page du rapport
 - `/dax` — export complet des 77 formules DAX
